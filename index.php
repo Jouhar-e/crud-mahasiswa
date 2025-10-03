@@ -20,7 +20,7 @@ $db = new DB();
 
     <div class="container">
         <!-- Navbar -->
-        <div class="row bg-primary shadow">
+        <div class="row shadow">
             <div class="col-md-5 m-3">
                 <nav>
                     <div>
@@ -33,7 +33,20 @@ $db = new DB();
         <!-- Content -->
         <div class="row">
             <div>
-                <?php require_once 'mahasiswa/select.php' ?>
+                <?php 
+                
+                    if (isset($_GET['f']) && isset($_GET['m'])) {
+                        $f = $_GET['f'];
+                        $m = $_GET['m'];
+
+                        $file = $f.'/'.$m.'.php';
+                        // echo $file;
+                        require_once $file;
+                    }else {
+                        require_once 'mahasiswa/select.php';
+                    }
+                
+                ?>
             </div>
         </div>
 

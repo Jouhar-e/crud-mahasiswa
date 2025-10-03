@@ -19,6 +19,8 @@ class DB
         return $koneksi;
     }
 
+
+    // untuk menampilkan seluruh data
     public function getData($sql)
     {
         $result = mysqli_query($this->koneksi, $sql);
@@ -29,4 +31,16 @@ class DB
             return $data;
         }
     }
+
+    // untuk menampilkan satu data
+    public function getValue($sql){
+        $result = mysqli_query($this->koneksi,$sql);
+        $row = mysqli_fetch_assoc($result);
+        return $row;
+    }
+
+    public function runQuery($sql){
+        $result = mysqli_query($this->koneksi,$sql);
+    }
+
 }
