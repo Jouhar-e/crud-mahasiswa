@@ -22,9 +22,12 @@ $db = new DB();
         <!-- Navbar -->
         <div class="row shadow">
             <div class="col-md-5 m-3">
-                <nav>
+                <nav class="d-flex text-dark">
                     <div>
-                        <h2>Data Mahasiswa</h2>
+                        <h2><a href="?f=mahasiswa&&m=select" class="text-decoration-none text-dark" >Data Mahasiswa</a></h2>
+                    </div>
+                    <div class="navbar-item">
+                        <a href="?f=matkul&&m=select">Matkul</a>
                     </div>
                 </nav>
             </div>

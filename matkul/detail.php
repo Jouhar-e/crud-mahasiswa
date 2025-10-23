@@ -3,7 +3,7 @@
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
 
-        $sql = "SELECT * FROM mahasiswa WHERE idmahasiswa = $id";
+        $sql = "SELECT * FROM matkul WHERE idmatkul = $id";
         $row = $db->getValue($sql);
         // var_dump($row);
     }
@@ -15,23 +15,18 @@
 <div>
     <table class="table">
         <tr>
-            <td>NIM</td>
+            <td>Kode Matkul</td>
             <td>:</td>
-            <td><?= $row['nim'] ?></td>
+            <td><?= $row['kode_mk'] ?></td>
         </tr>
         <tr>
-            <td>Nama Mahasiswa</td>
+            <td>Nama Matkul</td>
             <td>:</td>
-            <td><?= $row['mahasiswa'] ?></td>
-        </tr>
-        <tr>
-            <td>Alamat</td>
-            <td>:</td>
-            <td><?= $row['alamat'] ?></td>
+            <td><?= $row['nama_mk'] ?></td>
         </tr>
         <tr>
             <td colspan="3" class="d-flex">
-                <a href="?f=mahasiswa&&m=update&&id=<?= $row['idmahasiswa'] ?>" class="btn btn-warning btn-sm">Ubah</a>
+                <a href="?f=matkul&&m=update&&id=<?= $row['idmatkul'] ?>" class="btn btn-warning btn-sm">Ubah</a>
                 <form action="" class="ms-2" method="post">
                     <input type="submit" class="btn btn-danger btn-sm" value="Hapus" name="hapus">
                 </form>
@@ -43,10 +38,10 @@
 <?php
 
     if (isset($_POST['hapus'])) {
-        $sql = "DELETE FROM mahasiswa WHERE idmahasiswa = $id";
+        $sql = "DELETE FROM matkul WHERE idmatkul = $id";
         // echo $sql;
         $db->runQuery($sql);
-        header("location:?f=mahasiswa&&m=select");
+        header("location:?f=matkul&&m=select");
     }
 
 ?>
